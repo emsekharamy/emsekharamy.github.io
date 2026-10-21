@@ -104,6 +104,54 @@ footer{padding-block:48px 40px;color:var(--muted);font-size:14px;text-align:cent
   .digits{font-size:34px;padding:10px 8px 4px;border-radius:10px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* suspects board: name + rating */
+.wanted-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:start}
+.wposter{justify-self:center;width:min(100%,300px);background:#f3e2bf;color:#3a2410;border-radius:6px;padding:18px 18px 16px;box-shadow:0 18px 40px rgba(0,0,0,.45),inset 0 0 0 3px #d9bf8c,inset 0 0 40px rgba(120,70,20,.25);transform:rotate(-2.5deg);display:grid;gap:8px;justify-items:center;position:relative}
+.wposter::before,.wposter::after{content:"";position:absolute;top:-10px;width:56px;height:20px;background:rgba(255,246,230,.55);transform:rotate(-8deg)}
+.wposter::before{left:18px}.wposter::after{right:18px;transform:rotate(8deg)}
+.wposter .t{font-family:var(--display);font-size:48px;line-height:1;color:#7a2a12}
+.wposter .tw{font-family:var(--body);font-weight:700;letter-spacing:.3em;font-size:13px;margin-top:-4px}
+.wposter .face{width:150px;height:150px;border:4px solid #3a2410;border-radius:4px;background:radial-gradient(circle at 50% 38%,#f6c9a0 0 22%,transparent 23%),radial-gradient(ellipse at 50% 100%,#2b2b35 0 45%,transparent 46%),#d6b47c;position:relative;overflow:hidden}
+.wposter .face i{position:absolute;left:28%;right:28%;top:30%;height:12%;background:#151515;border-radius:3px}
+.wposter .nm{font-family:var(--display);font-size:34px;line-height:1.15;min-height:40px;text-align:center;word-break:break-word;color:#3a2410}
+.wposter .al{font-size:14px;font-weight:600;color:#7a2a12;min-height:22px;text-align:center}
+.wposter .rw{font-family:var(--display);font-size:26px;color:#b3261e;border-top:2px dashed #b08a50;padding-top:6px;width:100%;text-align:center}
+.wposter.stamp::after{content:"اتمسك! 🚔";top:44%;left:50%;right:auto;width:auto;height:auto;background:none;transform:translate(-50%,-50%) rotate(-14deg);font-family:var(--display);font-size:46px;color:#c62828;border:5px solid #c62828;border-radius:10px;padding:6px 14px 0;opacity:.9;animation:stampIn .35s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stampIn{from{transform:translate(-50%,-50%) rotate(-14deg) scale(2.4);opacity:0}}
+.wform{display:grid;gap:16px;min-width:0}
+.field{display:grid;gap:8px}
+.field label{font-weight:700;font-size:16px}
+.namebox{position:relative}
+.namebox input{width:100%;font-family:var(--display);font-size:28px;line-height:1.2;padding:14px 16px 8px;border-radius:14px;border:2px dashed rgba(244,180,60,.55);background:var(--night-2);color:var(--brass);outline:none;transition:border-color .2s,box-shadow .2s}
+.namebox input::placeholder{color:rgba(170,180,202,.55)}
+.namebox input:focus{border-style:solid;border-color:var(--brass);box-shadow:0 0 0 4px rgba(244,180,60,.18)}
+.namebox .cnt{position:absolute;left:12px;bottom:-20px;font-size:12px;color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:var(--body);font-size:14px;font-weight:600;background:var(--ink-3);color:var(--paper);border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brass);color:var(--night)}
+.chip:focus-visible,.star:focus-visible{outline:3px solid var(--cop);outline-offset:2px}
+.stars{display:flex;gap:6px;justify-content:flex-start}
+.star{font-size:40px;line-height:1;background:none;border:0;cursor:pointer;filter:grayscale(1) opacity(.45);transition:transform .15s,filter .15s;padding:0}
+.star.on{filter:none;transform:scale(1.08)}
+.star:hover{transform:scale(1.18)}
+.rlabel{font-weight:600;color:var(--brass);min-height:24px}
+.wform textarea{width:100%;min-height:84px;font-family:var(--body);font-size:16px;padding:12px 14px;border-radius:14px;border:1.5px solid rgba(255,246,230,.18);background:var(--night-2);color:var(--paper);resize:vertical}
+.wform textarea:focus{outline:none;border-color:var(--brass)}
+.msg{min-height:24px;font-weight:600}
+.msg.err{color:#ff8a8f}.msg.ok{color:#7fe0a7}
+.score{display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:var(--night-2);border-radius:18px;padding:16px 18px;margin-top:22px}
+.score b{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;color:var(--brass)}
+.score .s5{font-size:22px;letter-spacing:2px}
+.score small{color:var(--muted)}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+.card{background:#f3e2bf;color:#3a2410;border-radius:6px;padding:12px 10px 10px;text-align:center;display:grid;gap:4px;box-shadow:0 8px 18px rgba(0,0,0,.35);transform:rotate(var(--r,0deg))}
+.card .n{font-family:var(--display);font-size:22px;line-height:1.15;word-break:break-word}
+.card .a{font-size:12px;font-weight:600;color:#7a2a12}
+.card .st{font-size:13px}
+.card .c{font-size:13px;color:#5a4128;line-height:1.5;word-break:break-word}
+.empty{color:var(--muted);padding:8px 0}
+@media (max-width:760px){.wanted-wrap{grid-template-columns:1fr}.wposter{width:min(100%,260px)}.stars{justify-content:center}.star{font-size:36px}}
 </style>
 </head>
 <body>
@@ -119,7 +167,7 @@ footer{padding-block:48px 40px;color:var(--muted);font-size:14px;text-align:cent
         <p class="lede">فيه حرامي <b>متنكّر</b> وسطكم… شكله زي أي حد، بس فيه حاجة واحدة بتفضحه. هتعرف تمسكه؟</p>
         <div class="cta">
           <a class="btn p" href="demo.html">👣 جرّب الحركة دلوقتي</a>
-          <a class="btn s" href="#follow">تابعنا</a>
+          <a class="btn s" href="#rate">سجّل اسمك ⭐</a>
         </div>
       </div>
       <img class="poster" src="icon.png" alt="بوستر مطلوب: الحرامي المتنكّر ومكافأة مليون دولار" width="380" height="380">
@@ -166,6 +214,43 @@ footer{padding-block:48px 40px;color:var(--muted);font-size:14px;text-align:cent
     </div>
   </section>
 
+
+  <section id="rate" aria-labelledby="rateH">
+    <div class="sec-h"><h2 id="rateH">انت متّهم… سجّل اسمك 🕵️</h2><p>اكتب اسمك وقيّم التجربة، وهنعلّق بوستر "مطلوب" باسمك على حيطة القرية. كل اللي داخلين بيشوفوه.</p></div>
+    <div class="wanted-wrap">
+      <div class="wposter" id="wp" aria-live="polite">
+        <div class="t">مطلوب</div><div class="tw">WANTED</div>
+        <div class="face"><i></i></div>
+        <div class="nm" id="wpName">اسمك هنا</div>
+        <div class="al" id="wpAlias">الشهير بـ… ؟</div>
+        <div class="rw" id="wpReward">مكافأة: ؟؟؟</div>
+      </div>
+      <form class="wform" id="wform" novalidate>
+        <div class="field">
+          <label for="wName">اسمك إيه يا متّهم؟</label>
+          <div class="namebox"><input id="wName" maxlength="22" autocomplete="nickname" placeholder="مثلاً: حمادة" required><span class="cnt" id="wCnt">0/22</span></div>
+        </div>
+        <div class="field" style="margin-top:6px">
+          <label>لقبك في القرية</label>
+          <div class="chips" id="wChips"></div>
+        </div>
+        <div class="field">
+          <label>قيّم التجربة</label>
+          <div class="stars" id="wStars" role="radiogroup" aria-label="التقييم من 5"></div>
+          <div class="rlabel" id="wRl">دوس على النجوم ⭐</div>
+        </div>
+        <div class="field">
+          <label for="wCom">كلمة للقرية (اختياري)</label>
+          <textarea id="wCom" maxlength="140" placeholder="عجبتك المشية؟ مستني إيه في اللعبة؟"></textarea>
+        </div>
+        <div class="cta"><button class="btn p" id="wSend" type="submit">📌 علّق البوستر بتاعي</button></div>
+        <div class="msg" id="wMsg" role="status"></div>
+      </form>
+    </div>
+    <div class="score" id="score"><b id="avg">–</b><div><div class="s5" id="avgStars">☆☆☆☆☆</div><small id="cntTxt">لسه محدش قيّم… كن أول واحد!</small></div></div>
+    <div class="wall" id="wall"></div>
+  </section>
+
   <section id="follow" aria-labelledby="folH">
     <div class="sec-h"><h2 id="folH">متفوّتش يوم الإطلاق</h2><p>كل يوم لغز جديد ومقاطع من القرية. تابعنا وكن أول واحد يلعب.</p></div>
     <div class="follow">
@@ -206,5 +291,68 @@ footer{padding-block:48px 40px;color:var(--muted);font-size:14px;text-align:cent
 })();
 </script>
 
+
+<script>
+(function(){
+  const FORM='https://docs.google.com/forms/d/e/1FAIpQLSftFO-AO83nbJi4aVbvLHVLxaJW9WKODO2VseaoOceQZ8Bzpg/formResponse';
+  const E={name:'entry.1260492758',rate:'entry.59544274',com:'entry.948172177'};
+  const SHEET='1p0I8M4yKUG9CG4my-mJeVkJK5JGgFCAb-63DqV-tLBc';
+  const ALIASES=['أبو خطوة سريعة','ملك التنكّر','عين الصقر','الظابط الغلبان','أسرع رجلين في القرية','اللي محدش شافه','نينجا السوق','المحقق كونان المصري','صاحب المشية الغريبة','حرامي الحلويات'];
+  const REWARDS=['مليون جنيه','كيلو بسبوسة','ساندوتش فول','عشا عند أمه','كارت شحن 10','طبق كشري'];
+  const RL=['','وحشة 😬','مش بطّالة 🙂','حلوة 😎','جامدة 🔥','أسطورية! 🤯'];
+  const $=id=>document.getElementById(id);
+  const nameIn=$('wName'), chips=$('wChips'), starsEl=$('wStars');
+  let alias=ALIASES[(Math.random()*ALIASES.length)|0], rate=0, sent=false;
+  const reward=REWARDS[(Math.random()*REWARDS.length)|0];
+  try{ sent=localStorage.getItem('emsek_sent')==='1'; }catch(_){}
+  // rotating playful placeholder
+  const PH=['مثلاً: حمادة','مثلاً: سارة الجامدة','مثلاً: أبو علي','مثلاً: كابتن ميدو','مثلاً: نونة'];let pi=0;
+  setInterval(()=>{ if(!nameIn.value){ pi=(pi+1)%PH.length; nameIn.placeholder=PH[pi]; } },2200);
+  // alias chips
+  const pickSet=ALIASES.slice().sort(()=>Math.random()-.5).slice(0,4); if(!pickSet.includes(alias)) pickSet[0]=alias;
+  pickSet.forEach(a=>{ const b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=a; b.setAttribute('aria-pressed',a===alias);
+    b.onclick=()=>{ alias=a; [...chips.children].forEach(c=>c.setAttribute('aria-pressed',c===b)); paint(); }; chips.appendChild(b); });
+  // stars
+  for(let i=1;i<=5;i++){ const b=document.createElement('button'); b.type='button'; b.className='star'; b.textContent='⭐'; b.setAttribute('role','radio'); b.setAttribute('aria-label',i+' من 5');
+    b.onclick=()=>{ rate=i; [...starsEl.children].forEach((c,k)=>{c.classList.toggle('on',k<i); c.setAttribute('aria-checked',k===i-1);}); $('wRl').textContent=RL[i]; paint(); };
+    starsEl.appendChild(b); }
+  function paint(){ const n=nameIn.value.trim(); $('wpName').textContent=n||'اسمك هنا'; $('wpAlias').textContent='الشهير بـ «'+alias+'»'; $('wpReward').textContent='مكافأة: '+reward; $('wCnt').textContent=nameIn.value.length+'/22'; }
+  nameIn.addEventListener('input',paint); paint();
+  function stars(n){ n=Math.round(n); return '★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n); }
+  function rot(){ return (Math.random()*6-3).toFixed(1)+'deg'; }
+  function cardEl(r){ const d=document.createElement('div'); d.className='card'; d.style.setProperty('--r',rot());
+    const n=document.createElement('div'); n.className='n'; n.textContent=r.name;
+    const a=document.createElement('div'); a.className='a'; a.textContent=r.alias?('«'+r.alias+'»'):'';
+    const st=document.createElement('div'); st.className='st'; st.textContent=r.rate?stars(r.rate):'';
+    d.append(n,a,st); if(r.com){ const c=document.createElement('div'); c.className='c'; c.textContent=r.com; d.append(c); } return d; }
+  // read the wall (JSONP from the public sheet)
+  window.__gvWall=function(res){
+    try{
+      const rows=(res.table.rows||[]).map(r=>{ const c=r.c||[]; const v=i=>c[i]&&c[i].v!=null?String(c[i].v):''; 
+        const raw=v(0); const m=raw.match(/^(.*)\s\|\s(.*)$/); return {name:m?m[1]:raw, alias:m?m[2]:'', rate:parseFloat(v(1))||0, com:v(2)}; }).filter(r=>r.name);
+      const rated=rows.filter(r=>r.rate>=1&&r.rate<=5);
+      if(rated.length){ const avg=rated.reduce((s,r)=>s+r.rate,0)/rated.length; $('avg').textContent=avg.toFixed(1); $('avgStars').textContent=stars(avg); $('cntTxt').textContent=rated.length+' تقييم من أهل القرية'; }
+      const wall=$('wall'); wall.textContent=''; rows.slice(0,24).forEach(r=>wall.appendChild(cardEl(r)));
+      if(!rows.length){ const e=document.createElement('div'); e.className='empty'; e.textContent='الحيطة لسه فاضية… علّق أول بوستر!'; wall.appendChild(e); }
+    }catch(err){ console.error(err); }
+  };
+  function loadWall(){ const s=document.createElement('script'); const q=encodeURIComponent('select B, C, D order by A desc limit 60');
+    s.src='https://docs.google.com/spreadsheets/d/'+SHEET+'/gviz/tq?tqx=responseHandler:__gvWall&tq='+q+'&_='+Date.now(); s.onload=()=>s.remove(); s.onerror=()=>s.remove(); document.body.appendChild(s); }
+  loadWall();
+  if(sent){ $('wMsg').className='msg ok'; $('wMsg').textContent='انت متعلّق على الحيطة خلاص 😎 شوف بوسترك تحت.'; }
+  $('wform').addEventListener('submit',async ev=>{ ev.preventDefault(); const msg=$('wMsg'); const n=nameIn.value.trim();
+    if(sent){ msg.className='msg ok'; msg.textContent='بوسترك متعلّق خلاص 😎'; return; }
+    if(n.length<2){ msg.className='msg err'; msg.textContent='اكتب اسمك الأول (حرفين على الأقل) ✍️'; nameIn.focus(); return; }
+    if(!rate){ msg.className='msg err'; msg.textContent='اختار عدد النجوم ⭐'; return; }
+    const btn=$('wSend'); btn.disabled=true; btn.textContent='بنعلّق البوستر…';
+    const body=new URLSearchParams(); body.append(E.name,n+' | '+alias); body.append(E.rate,String(rate)); body.append(E.com,$('wCom').value.trim().slice(0,140));
+    try{ await fetch(FORM,{method:'POST',mode:'no-cors',body}); sent=true; try{localStorage.setItem('emsek_sent','1');}catch(_){}
+      $('wp').classList.add('stamp'); msg.className='msg ok'; msg.textContent='اتعلّق! 🎉 انت دلوقتي من أهل القرية.';
+      const wall=$('wall'); const em=wall.querySelector('.empty'); if(em) em.remove(); wall.prepend(cardEl({name:n,alias,rate,com:$('wCom').value.trim()}));
+      btn.textContent='✅ اتعلّق'; setTimeout(loadWall,4000);
+    }catch(err){ msg.className='msg err'; msg.textContent='النت فصل… جرّب تاني كمان شوية'; btn.disabled=false; btn.textContent='📌 علّق البوستر بتاعي'; }
+  });
+})();
+</script>
 </body>
 </html>
